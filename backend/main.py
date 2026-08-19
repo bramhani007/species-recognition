@@ -40,9 +40,27 @@ def startup() -> None:
     database.init_db()
 
 
+@app.get("/")
+def root() -> dict:
+    return {
+        "message": "🐾 Animal Species Recognition Backend is Running!",
+        "status": "online",
+        "version": "1.0.0",
+        "model": "custom" if is_custom_model() else "EfficientNet-B0 (ImageNet)",
+        "docs": "/docs",
+        "health": "/health",
+        "endpoints": {
+            "predict": "POST /predict",
+            "predictions": "GET /predictions",
+            "statistics": "GET /statistics",
+        }
+    }
+
+
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok", "model": "custom" if is_custom_model() else "imagenet-efficientnet-b0"}
+
 
 
 @app.post("/predict")

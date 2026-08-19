@@ -9,5 +9,5 @@ numpy>=1.26.4,<2.0.0
 opencv-python-headless==4.10.0.84
 
 # Deep learning — TensorFlow + Keras (EfficientNet-B0)
-# CPU wheel; for GPU support install tensorflow with CUDA support instead.
-tensorflow-cpu==2.16.1
+# tensorflow (CPU-only on Render, no GPU available)
+tensorflow==2.16.1

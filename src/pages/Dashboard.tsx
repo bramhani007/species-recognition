@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BarChart3, Layers, Gauge, Trophy, ArrowRight, Calendar, Clock } from 'lucide-react';
+import { BarChart3, Layers, Gauge, Trophy, ArrowRight, Calendar } from 'lucide-react';
 import StatisticsCard from '@/components/StatisticsCard';
 import SpeciesChart from '@/components/SpeciesChart';
 import ConfidenceChart from '@/components/ConfidenceChart';
@@ -113,7 +113,6 @@ export default function Dashboard() {
                       <p className="text-xs text-teal-600 font-600">{p.confidence.toFixed(2)}%</p>
                       <p className="mt-0.5 flex items-center gap-2 text-xs text-forest-500">
                         <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {dt ? dt.toLocaleDateString() : '—'}</span>
-                        <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> {dt ? dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '—'}</span>
                       </p>
                     </div>
                   </div>

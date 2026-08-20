@@ -1,4 +1,4 @@
-import { Trash2, Eye, Calendar, Clock } from 'lucide-react';
+import { Trash2, Eye, Calendar } from 'lucide-react';
 import type { Prediction } from '@/services/api';
 
 type Props = {
@@ -35,14 +35,13 @@ export default function PredictionTable({ predictions, loading, empty, onDelete,
   return (
     <div className="card overflow-hidden">
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[760px] text-sm">
+        <table className="w-full min-w-[640px] text-sm">
           <thead>
             <tr className="border-b border-forest-100 bg-forest-50/60 text-left text-xs font-semibold uppercase tracking-wide text-forest-500">
               <th className="px-4 py-3">Image</th>
               <th className="px-4 py-3">Species</th>
               <th className="px-4 py-3">Confidence</th>
               <th className="px-4 py-3">Date</th>
-              <th className="px-4 py-3">Time</th>
               <th className="px-4 py-3 text-right">Action</th>
             </tr>
           </thead>
@@ -71,12 +70,6 @@ export default function PredictionTable({ predictions, loading, empty, onDelete,
                     <span className="flex items-center gap-1.5">
                       <Calendar className="h-3.5 w-3.5 text-forest-400" />
                       {dt ? dt.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '—'}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3 text-forest-600">
-                    <span className="flex items-center gap-1.5">
-                      <Clock className="h-3.5 w-3.5 text-forest-400" />
-                      {dt ? dt.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }) : '—'}
                     </span>
                   </td>
                   <td className="px-4 py-3">

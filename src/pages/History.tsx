@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Search, Trash2, X, Eye, Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Search, Trash2, X, Eye, Calendar, ArrowRight } from 'lucide-react';
 import PredictionTable from '@/components/PredictionTable';
 import ConfidenceScore from '@/components/ConfidenceScore';
 import SpeciesInfo from '@/components/SpeciesInfo';
@@ -139,15 +139,9 @@ export default function History() {
                 <p className="text-xs font-semibold uppercase tracking-wide text-forest-400">Confidence Score</p>
                 <div className="mt-1"><ConfidenceScore confidence={selected.confidence} size="lg" /></div>
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-xl bg-forest-50 px-3 py-2.5 ring-1 ring-forest-100">
-                  <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-forest-400"><Calendar className="h-3.5 w-3.5" /> Date</p>
-                  <p className="mt-0.5 text-sm font-600 text-forest-800">{selected.created_at ? new Date(selected.created_at).toLocaleDateString() : '—'}</p>
-                </div>
-                <div className="rounded-xl bg-forest-50 px-3 py-2.5 ring-1 ring-forest-100">
-                  <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-forest-400"><Clock className="h-3.5 w-3.5" /> Time</p>
-                  <p className="mt-0.5 text-sm font-600 text-forest-800">{selected.created_at ? new Date(selected.created_at).toLocaleTimeString() : '—'}</p>
-                </div>
+              <div className="rounded-xl bg-forest-50 px-3 py-2.5 ring-1 ring-forest-100">
+                <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-forest-400"><Calendar className="h-3.5 w-3.5" /> Date</p>
+                <p className="mt-0.5 text-sm font-600 text-forest-800">{selected.created_at ? new Date(selected.created_at).toLocaleDateString() : '—'}</p>
               </div>
               <SpeciesInfo
                 species={selected.species}

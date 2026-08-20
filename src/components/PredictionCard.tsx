@@ -1,4 +1,4 @@
-import { Calendar, Clock, PawPrint, Sparkles } from 'lucide-react';
+import { Calendar, PawPrint, Sparkles } from 'lucide-react';
 import ConfidenceScore from './ConfidenceScore';
 import type { Prediction } from '@/services/api';
 
@@ -11,7 +11,6 @@ type Props = {
 export default function PredictionCard({ prediction, imageUrl, onReset }: Props) {
   const dt = prediction.created_at ? new Date(prediction.created_at) : null;
   const date = dt ? dt.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '—';
-  const time = dt ? dt.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }) : '—';
 
   return (
     <div className="card animate-scale-in overflow-hidden">
@@ -44,19 +43,11 @@ export default function PredictionCard({ prediction, imageUrl, onReset }: Props)
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-xl bg-forest-50 px-3 py-2.5 ring-1 ring-forest-100">
-              <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-forest-400">
-                <Calendar className="h-3.5 w-3.5" /> Date
-              </p>
-              <p className="mt-0.5 text-sm font-600 text-forest-800">{date}</p>
-            </div>
-            <div className="rounded-xl bg-forest-50 px-3 py-2.5 ring-1 ring-forest-100">
-              <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-forest-400">
-                <Clock className="h-3.5 w-3.5" /> Time
-              </p>
-              <p className="mt-0.5 text-sm font-600 text-forest-800">{time}</p>
-            </div>
+          <div className="rounded-xl bg-forest-50 px-3 py-2.5 ring-1 ring-forest-100">
+            <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-forest-400">
+              <Calendar className="h-3.5 w-3.5" /> Date
+            </p>
+            <p className="mt-0.5 text-sm font-600 text-forest-800">{date}</p>
           </div>
 
           {onReset && (
